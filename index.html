@@ -26,6 +26,18 @@
     const fileListDiv = document.getElementById('fileList');
     const statsDiv = document.getElementById('stats');
 
+    // FFlag prefixes to remove
+    const prefixes = ['FFlag', 'DFInt', 'FInt', 'DFFlag', 'DFLog', 'FLog', 'DFString', 'FString'];
+
+    function removePrefix(flagName) {
+        for (const prefix of prefixes) {
+            if (flagName.startsWith(prefix)) {
+                return flagName.substring(prefix.length);
+            }
+        }
+        return flagName;
+    }
+
     function showMessage(msg) {
         const el = document.createElement('div');
         el.textContent = msg;
@@ -42,7 +54,10 @@
                 const data = JSON.parse(content);
                 if (typeof data === 'object' && data !== null) {
                     for (const [key, value] of Object.entries(data)) {
-                        if (!key.startsWith('//')) result[key] = value;
+                        if (!key.startsWith('//')) {
+                            const cleanKey = removePrefix(key);
+                            result[cleanKey] = value;
+                        }
                     }
                 }
             } else {
@@ -50,7 +65,10 @@
                     const data = JSON.parse(content);
                     if (typeof data === 'object' && data !== null) {
                         for (const [key, value] of Object.entries(data)) {
-                            if (!key.startsWith('//')) result[key] = value;
+                            if (!key.startsWith('//')) {
+                                const cleanKey = removePrefix(key);
+                                result[cleanKey] = value;
+                            }
                         }
                         return result;
                     }
@@ -60,19 +78,23 @@
                         const trimmed = line.trim();
                         if (trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('//')) {
                             if (trimmed.includes('=')) {
-                                const flag = trimmed.split('=')[0].trim();
+                                let flag = trimmed.split('=')[0].trim();
                                 const value = trimmed.substring(trimmed.indexOf('=') + 1).trim();
-                                result[flag] = value;
+                                const cleanKey = removePrefix(flag);
+                                result[cleanKey] = value;
                             } else if (trimmed.includes(':')) {
                                 try {
-                                    const flag = trimmed.split(':')[0].trim().replace(/["']/g, '');
+                                    let flag = trimmed.split(':')[0].trim().replace(/["']/g, '');
                                     const value = trimmed.substring(trimmed.indexOf(':') + 1).trim().replace(/["',]/g, '');
-                                    result[flag] = value;
+                                    const cleanKey = removePrefix(flag);
+                                    result[cleanKey] = value;
                                 } catch (e) {
-                                    result[trimmed] = "";
+                                    const cleanKey = removePrefix(trimmed);
+                                    result[cleanKey] = "";
                                 }
                             } else {
-                                result[trimmed] = "";
+                                const cleanKey = removePrefix(trimmed);
+                                result[cleanKey] = "";
                             }
                         }
                     }
