@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FFlag Config Generator</title>
+    <title>Generator</title>
 </head>
 <body>
 
 <input type="file" id="fileInput" multiple accept=".json,.txt">
 <button id="generateBtn">Generate</button>
 <button id="copyBtn">Copy</button>
-<button id="downloadBtn">Download</button>
 <button id="clearBtn">Clear</button>
 
 <div id="fileList"></div>
@@ -22,7 +21,6 @@
     const fileInput = document.getElementById('fileInput');
     const generateBtn = document.getElementById('generateBtn');
     const copyBtn = document.getElementById('copyBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
     const clearBtn = document.getElementById('clearBtn');
     const outputArea = document.getElementById('outputArea');
     const fileListDiv = document.getElementById('fileList');
@@ -217,21 +215,6 @@
         navigator.clipboard.writeText(outputArea.value).then(() => showMessage('Copied!'));
     }
 
-    function downloadConfig() {
-        if (!outputArea.value) {
-            showMessage('Nothing to download');
-            return;
-        }
-        const blob = new Blob([outputArea.value], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `fflag_config.lua`;
-        a.click();
-        URL.revokeObjectURL(url);
-        showMessage('Downloaded');
-    }
-
     function clearAll() {
         uploadedFiles = [];
         renderFileList();
@@ -244,7 +227,6 @@
     fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
     generateBtn.addEventListener('click', updateOutput);
     copyBtn.addEventListener('click', copyToClipboard);
-    downloadBtn.addEventListener('click', downloadConfig);
     clearBtn.addEventListener('click', clearAll);
 
     renderFileList();
