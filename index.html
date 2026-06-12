@@ -12,78 +12,60 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
             padding: 20px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+            display: inline-block;
         }
 
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            margin-top: 20px;
         }
 
         .panel {
             background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
         }
 
         .panel h2 {
             color: #333;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: normal;
+            border-left: 3px solid #007acc;
+            padding-left: 10px;
         }
 
         .upload-area {
-            border: 2px dashed #ccc;
-            border-radius: 8px;
-            padding: 40px;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            padding: 30px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
+            background: #fafafa;
+            margin-bottom: 15px;
         }
 
         .upload-area:hover {
-            border-color: #667eea;
-            background: #f8f9ff;
-        }
-
-        .upload-area.drag-over {
-            border-color: #667eea;
-            background: #f0f3ff;
-        }
-
-        .upload-icon {
-            font-size: 48px;
-            margin-bottom: 10px;
+            background: #f0f0f0;
         }
 
         .file-input {
@@ -91,68 +73,78 @@
         }
 
         .file-list {
-            margin-top: 20px;
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
         }
 
         .file-item {
-            background: #f5f5f5;
-            padding: 10px 15px;
-            border-radius: 6px;
-            margin-bottom: 10px;
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 8px 12px;
+            margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 13px;
         }
 
         .file-name {
-            font-size: 14px;
             color: #333;
             word-break: break-all;
             flex: 1;
         }
 
         .remove-file {
-            background: #ff4444;
+            background: #dc3545;
             color: white;
             border: none;
-            padding: 4px 12px;
-            border-radius: 4px;
+            padding: 4px 10px;
+            border-radius: 3px;
             cursor: pointer;
             font-size: 12px;
         }
 
         .remove-file:hover {
-            background: #cc0000;
+            background: #c82333;
+        }
+
+        button {
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #005fa3;
         }
 
         .generate-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 15px;
+            background: #28a745;
         }
 
         .generate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            background: #218838;
         }
 
         .output-area {
             background: #1e1e1e;
-            border-radius: 8px;
-            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 15px;
             color: #d4d4d4;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12px;
             overflow-x: auto;
             white-space: pre-wrap;
             word-wrap: break-word;
-            max-height: 500px;
+            max-height: 400px;
             overflow-y: auto;
         }
 
@@ -165,142 +157,124 @@
             gap: 10px;
         }
 
-        .copy-btn, .download-btn {
-            background: #28a745;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
+        .output-buttons {
+            display: flex;
+            gap: 10px;
         }
 
-        .copy-btn:hover, .download-btn:hover {
-            background: #218838;
+        .copy-btn {
+            background: #28a745;
+        }
+
+        .download-btn {
+            background: #17a2b8;
         }
 
         .clear-btn {
-            background: #ff4444;
-        }
-
-        .clear-btn:hover {
-            background: #cc0000;
+            background: #dc3545;
         }
 
         .stats {
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
-            font-size: 14px;
+            border-top: 1px solid #ddd;
+            font-size: 13px;
             color: #666;
         }
 
         .prefix-info {
-            background: #f0f0f0;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 12px;
         }
 
         .prefix-info h3 {
-            font-size: 14px;
+            font-size: 13px;
             margin-bottom: 10px;
             color: #333;
         }
 
         .prefix-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 8px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
         }
 
         .prefix-item {
-            font-size: 12px;
             color: #555;
         }
 
         .prefix-name {
             font-weight: bold;
-            color: #667eea;
+            color: #007acc;
         }
 
-        @media (max-width: 768px) {
+        .empty-message {
+            color: #999;
+            text-align: center;
+            padding: 20px;
+        }
+
+        hr {
+            margin: 15px 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 700px) {
             .main-content {
                 grid-template-columns: 1fr;
-            }
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #333;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            animation: slideIn 0.3s ease;
-            z-index: 1000;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>🔧 FFlag Config Generator</h1>
-            <p>Upload JSON/TXT files to generate Lua fast_flags configuration</p>
-        </div>
+        <h1>FFlag Config Generator</h1>
 
         <div class="main-content">
             <div class="panel">
-                <h2>📁 Upload Files</h2>
+                <h2>Upload Files</h2>
                 <div class="upload-area" id="uploadArea">
-                    <div class="upload-icon">📂</div>
-                    <p>Click or drag & drop JSON/TXT files here</p>
-                    <small>Supports .json and .txt files</small>
+                    <div>📂 Click or drag files here</div>
+                    <small style="color: #888;">.json or .txt files</small>
                     <input type="file" id="fileInput" multiple accept=".json,.txt" class="file-input">
                 </div>
 
-                <div id="fileList" class="file-list"></div>
+                <div id="fileList" class="file-list">
+                    <div class="empty-message">No files uploaded</div>
+                </div>
 
-                <button class="generate-btn" id="generateBtn">🚀 Generate Config</button>
+                <button class="generate-btn" id="generateBtn">Generate Config</button>
 
                 <div class="prefix-info">
-                    <h3>📖 Supported FFlag Prefixes</h3>
+                    <h3>Supported Prefixes</h3>
                     <div class="prefix-grid">
-                        <div class="prefix-item"><span class="prefix-name">DFFlag</span> - bool</div>
-                        <div class="prefix-item"><span class="prefix-name">DFInt</span> - number</div>
-                        <div class="prefix-item"><span class="prefix-name">DFLog</span> - number</div>
-                        <div class="prefix-item"><span class="prefix-name">DFString</span> - string</div>
-                        <div class="prefix-item"><span class="prefix-name">FFlag</span> - bool</div>
-                        <div class="prefix-item"><span class="prefix-name">FInt</span> - number</div>
-                        <div class="prefix-item"><span class="prefix-name">FLog</span> - string</div>
-                        <div class="prefix-item"><span class="prefix-name">FString</span> - string</div>
+                        <div class="prefix-item"><span class="prefix-name">DFFlag</span> = bool</div>
+                        <div class="prefix-item"><span class="prefix-name">DFInt</span> = number</div>
+                        <div class="prefix-item"><span class="prefix-name">DFLog</span> = number</div>
+                        <div class="prefix-item"><span class="prefix-name">DFString</span> = string</div>
+                        <div class="prefix-item"><span class="prefix-name">FFlag</span> = bool</div>
+                        <div class="prefix-item"><span class="prefix-name">FInt</span> = number</div>
+                        <div class="prefix-item"><span class="prefix-name">FLog</span> = string</div>
+                        <div class="prefix-item"><span class="prefix-name">FString</span> = string</div>
                     </div>
                 </div>
             </div>
 
             <div class="panel">
                 <div class="output-header">
-                    <h2>📄 Generated Config</h2>
-                    <div>
-                        <button class="copy-btn" id="copyBtn">📋 Copy</button>
-                        <button class="download-btn" id="downloadBtn">💾 Download</button>
-                        <button class="download-btn clear-btn" id="clearBtn">🗑️ Clear</button>
+                    <h2>Output</h2>
+                    <div class="output-buttons">
+                        <button class="copy-btn" id="copyBtn">Copy</button>
+                        <button class="download-btn" id="downloadBtn">Download</button>
+                        <button class="clear-btn" id="clearBtn">Clear</button>
                     </div>
                 </div>
                 <div class="output-area" id="outputArea">
-                    <span style="color: #888;">No config generated yet. Upload some files and click generate!</span>
+                    <span style="color: #888;">No config generated</span>
                 </div>
                 <div class="stats" id="stats"></div>
             </div>
@@ -310,7 +284,6 @@
     <script>
         let uploadedFiles = [];
 
-        // DOM elements
         const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
         const fileListDiv = document.getElementById('fileList');
@@ -321,17 +294,14 @@
         const outputArea = document.getElementById('outputArea');
         const statsDiv = document.getElementById('stats');
 
-        // Show toast notification
-        function showToast(message, isError = false) {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = message;
-            toast.style.background = isError ? '#dc3545' : '#28a745';
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
+        function showMessage(msg, isError = false) {
+            const el = document.createElement('div');
+            el.textContent = msg;
+            el.style.cssText = `position:fixed;bottom:20px;right:20px;background:${isError ? '#dc3545' : '#28a745'};color:white;padding:8px 16px;border-radius:4px;font-size:13px;z-index:1000`;
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 2500);
         }
 
-        // Parse uploaded file content
         function parseFileContent(content, filename) {
             const result = {};
             
@@ -340,39 +310,31 @@
                     const data = JSON.parse(content);
                     if (typeof data === 'object' && data !== null) {
                         for (const [key, value] of Object.entries(data)) {
-                            if (!key.startsWith('//')) {
-                                result[key] = value;
-                            }
+                            if (!key.startsWith('//')) result[key] = value;
                         }
                     }
                 } else {
-                    // Try parsing as JSON first
                     try {
                         const data = JSON.parse(content);
                         if (typeof data === 'object' && data !== null) {
                             for (const [key, value] of Object.entries(data)) {
-                                if (!key.startsWith('//')) {
-                                    result[key] = value;
-                                }
+                                if (!key.startsWith('//')) result[key] = value;
                             }
                             return result;
                         }
                     } catch (e) {
-                        // Parse as text file
                         const lines = content.split('\n');
                         for (const line of lines) {
                             const trimmed = line.trim();
                             if (trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('//')) {
                                 if (trimmed.includes('=')) {
-                                    const parts = trimmed.split('=', 1);
-                                    const flag = parts[0].trim();
-                                    let value = trimmed.substring(trimmed.indexOf('=') + 1).trim();
+                                    const flag = trimmed.split('=')[0].trim();
+                                    const value = trimmed.substring(trimmed.indexOf('=') + 1).trim();
                                     result[flag] = value;
                                 } else if (trimmed.includes(':')) {
                                     try {
-                                        const parts = trimmed.split(':', 1);
-                                        const flag = parts[0].trim().replace(/["']/g, '');
-                                        let value = trimmed.substring(trimmed.indexOf(':') + 1).trim().replace(/["',]/g, '');
+                                        const flag = trimmed.split(':')[0].trim().replace(/["']/g, '');
+                                        const value = trimmed.substring(trimmed.indexOf(':') + 1).trim().replace(/["',]/g, '');
                                         result[flag] = value;
                                     } catch (e) {
                                         result[trimmed] = "";
@@ -385,38 +347,29 @@
                     }
                 }
             } catch (e) {
-                console.error('Parse error:', e);
                 throw new Error(`Failed to parse ${filename}: ${e.message}`);
             }
             
             return result;
         }
 
-        // Convert value to Lua type
         function toLuaValue(value) {
-            if (typeof value === 'boolean') {
-                return value ? 'true' : 'false';
-            }
-            if (typeof value === 'number') {
-                return value.toString();
-            }
+            if (typeof value === 'boolean') return value ? 'true' : 'false';
+            if (typeof value === 'number') return value.toString();
             if (typeof value === 'string') {
                 const lower = value.toLowerCase();
                 if (lower === 'true') return 'true';
                 if (lower === 'false') return 'false';
                 const num = Number(value);
-                if (!isNaN(num)) {
-                    return num.toString();
-                }
+                if (!isNaN(num)) return num.toString();
                 return `"${value.replace(/"/g, '\\"')}"`;
             }
             return `"${String(value).replace(/"/g, '\\"')}"`;
         }
 
-        // Generate Lua config from all uploaded files
         function generateConfig() {
             if (uploadedFiles.length === 0) {
-                showToast('Please upload some files first!', true);
+                showMessage('Please upload files first!', true);
                 return null;
             }
 
@@ -427,48 +380,48 @@
                     const flags = parseFileContent(file.content, file.name);
                     Object.assign(allFlags, flags);
                 } catch (e) {
-                    showToast(`Error parsing ${file.name}: ${e.message}`, true);
+                    showMessage(e.message, true);
                     return null;
                 }
             }
 
             if (Object.keys(allFlags).length === 0) {
-                showToast('No valid FFlags found in the uploaded files!', true);
+                showMessage('No valid FFlags found!', true);
                 return null;
             }
 
             const lines = ['getgenv().fast_flags = {'];
-            for (const [flag, value] of Object.entries(allFlags)) {
-                lines.push(`    ${flag} = ${toLuaValue(value)},`);
+            const entries = Object.entries(allFlags);
+            
+            for (let i = 0; i < entries.length; i++) {
+                const [flag, value] = entries[i];
+                const isLast = i === entries.length - 1;
+                lines.push(`    ${flag} = ${toLuaValue(value)}${isLast ? '' : ','}`);
             }
+            
             lines.push('}');
             
-            const config = lines.join('\n');
-            const stats = `📊 Total FFlags: ${Object.keys(allFlags).length} | 📁 Files: ${uploadedFiles.length}`;
-            
-            return { config, stats };
+            return {
+                config: lines.join('\n'),
+                stats: `Total: ${Object.keys(allFlags).length} flags | Files: ${uploadedFiles.length}`
+            };
         }
 
-        // Update the output display
         function updateOutput() {
             const result = generateConfig();
             if (result) {
                 outputArea.textContent = result.config;
                 statsDiv.textContent = result.stats;
-            } else if (uploadedFiles.length === 0) {
-                outputArea.innerHTML = '<span style="color: #888;">No config generated yet. Upload some files and click generate!</span>';
-                statsDiv.textContent = '';
             }
         }
 
-        // Handle file upload
         function handleFiles(files) {
             const validFiles = Array.from(files).filter(f => 
                 f.name.toLowerCase().endsWith('.json') || f.name.toLowerCase().endsWith('.txt')
             );
             
             if (validFiles.length === 0) {
-                showToast('Please upload valid .json or .txt files!', true);
+                showMessage('Upload .json or .txt files only!', true);
                 return;
             }
 
@@ -476,96 +429,85 @@
             validFiles.forEach(file => {
                 const reader = new FileReader();
                 reader.onload = (e) => {
-                    uploadedFiles.push({
-                        name: file.name,
-                        content: e.target.result
-                    });
+                    uploadedFiles.push({ name: file.name, content: e.target.result });
                     processed++;
                     if (processed === validFiles.length) {
                         renderFileList();
-                        showToast(`Successfully added ${validFiles.length} file(s)!`);
+                        showMessage(`Added ${validFiles.length} file(s)`);
                     }
                 };
                 reader.onerror = () => {
                     processed++;
-                    showToast(`Error reading ${file.name}`, true);
+                    showMessage(`Error reading ${file.name}`, true);
                 };
                 reader.readAsText(file);
             });
         }
 
-        // Render the list of uploaded files
         function renderFileList() {
             if (uploadedFiles.length === 0) {
-                fileListDiv.innerHTML = '<div style="text-align: center; color: #999; padding: 20px;">No files uploaded</div>';
+                fileListDiv.innerHTML = '<div class="empty-message">No files uploaded</div>';
                 return;
             }
             
-            fileListDiv.innerHTML = uploadedFiles.map((file, index) => `
+            fileListDiv.innerHTML = uploadedFiles.map((file, idx) => `
                 <div class="file-item">
                     <span class="file-name">📄 ${file.name}</span>
-                    <button class="remove-file" data-index="${index}">Remove</button>
+                    <button class="remove-file" data-index="${idx}">Remove</button>
                 </div>
             `).join('');
             
-            // Add remove event listeners
             document.querySelectorAll('.remove-file').forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    const index = parseInt(btn.dataset.index);
-                    uploadedFiles.splice(index, 1);
+                    const idx = parseInt(btn.dataset.index);
+                    uploadedFiles.splice(idx, 1);
                     renderFileList();
-                    updateOutput();
-                    showToast('File removed');
+                    const result = generateConfig();
+                    if (result) {
+                        outputArea.textContent = result.config;
+                        statsDiv.textContent = result.stats;
+                    } else if (uploadedFiles.length === 0) {
+                        outputArea.innerHTML = '<span style="color: #888;">No config generated</span>';
+                        statsDiv.textContent = '';
+                    }
+                    showMessage('File removed');
                 });
             });
         }
 
-        // Copy to clipboard
-        async function copyToClipboard() {
+        function copyToClipboard() {
             const text = outputArea.textContent;
-            if (!text || text.includes('No config generated yet')) {
-                showToast('No config to copy!', true);
+            if (!text || text.includes('No config generated')) {
+                showMessage('Nothing to copy!', true);
                 return;
             }
-            
-            try {
-                await navigator.clipboard.writeText(text);
-                showToast('Copied to clipboard!');
-            } catch (e) {
-                showToast('Failed to copy', true);
-            }
+            navigator.clipboard.writeText(text).then(() => showMessage('Copied!')).catch(() => showMessage('Failed to copy', true));
         }
 
-        // Download config as file
         function downloadConfig() {
             const text = outputArea.textContent;
-            if (!text || text.includes('No config generated yet')) {
-                showToast('No config to download!', true);
+            if (!text || text.includes('No config generated')) {
+                showMessage('Nothing to download!', true);
                 return;
             }
-            
             const blob = new Blob([text], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `fflag_config_${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.lua`;
-            document.body.appendChild(a);
+            a.download = `fflag_config.lua`;
             a.click();
-            document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            showToast('Download started!');
+            showMessage('Download started');
         }
 
-        // Clear all files
         function clearAll() {
             uploadedFiles = [];
             renderFileList();
-            outputArea.innerHTML = '<span style="color: #888;">No config generated yet. Upload some files and click generate!</span>';
+            outputArea.innerHTML = '<span style="color: #888;">No config generated</span>';
             statsDiv.textContent = '';
-            showToast('Cleared all files');
+            showMessage('Cleared');
         }
 
-        // Event listeners
         uploadArea.addEventListener('click', () => fileInput.click());
         fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
         generateBtn.addEventListener('click', updateOutput);
@@ -573,23 +515,13 @@
         downloadBtn.addEventListener('click', downloadConfig);
         clearBtn.addEventListener('click', clearAll);
 
-        // Drag and drop
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('drag-over');
-        });
-        
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('drag-over');
-        });
-        
+        uploadArea.addEventListener('dragover', (e) => e.preventDefault());
+        uploadArea.addEventListener('dragleave', (e) => e.preventDefault());
         uploadArea.addEventListener('drop', (e) => {
             e.preventDefault();
-            uploadArea.classList.remove('drag-over');
             handleFiles(e.dataTransfer.files);
         });
 
-        // Initial render
         renderFileList();
     </script>
 </body>
